@@ -1692,8 +1692,8 @@ a {
    -------------------------------------------------------------------------- */
 .portrait-img {
   
-  width: 30%;
-  height: 50%;
+  width: 320px;
+  height: 460px;
   object-fit: cover;
   display: block;
 }
