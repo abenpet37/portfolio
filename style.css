@@ -1915,6 +1915,13 @@ a {
   padding-bottom: 5.5rem;
 }
 
+.art-showcase {
+  background: var(--color-card);
+  border: 1.5px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+}
+
 .art-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1926,14 +1933,31 @@ a {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1.5px solid var(--color-card-border);
-  background: var(--color-card);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  background: var(--color-bg);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   aspect-ratio: 3 / 4;
+  position: relative;
+}
+
+.art-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.12) 0%, rgba(255, 184, 0, 0) 60%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+  border-radius: var(--radius-md);
 }
 
 .art-thumb:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--color-yellow);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.art-thumb:hover::after {
+  opacity: 1;
 }
 
 .art-thumb img {
@@ -1945,7 +1969,7 @@ a {
 }
 
 .art-thumb:hover img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 /* --------------------------------------------------------------------------
