@@ -1908,7 +1908,48 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   15. PURE CSS LIGHTBOX MODALS (ZERO JAVASCRIPT, PURE CSS :target)
+   15. SECTION 05: ART & PHOTOGRAPHY GALLERY (Lightweight Masonry Grid)
+   -------------------------------------------------------------------------- */
+.art-section {
+  padding-top: 1.5rem;
+  padding-bottom: 5.5rem;
+}
+
+.art-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.art-thumb {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--color-card-border);
+  background: var(--color-card);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  aspect-ratio: 3 / 4;
+}
+
+.art-thumb:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-yellow);
+}
+
+.art-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.art-thumb:hover img {
+  transform: scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   16. PURE CSS LIGHTBOX MODALS (ZERO JAVASCRIPT, PURE CSS :target)
    -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
@@ -2040,10 +2081,22 @@ a {
   .certificates-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .art-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .art-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
   .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+  .art-gallery {
     grid-template-columns: 1fr;
   }
   .modal-box {
