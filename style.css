@@ -1691,9 +1691,10 @@ a {
    13. IMAGE & ASSET ENHANCEMENTS (ZERO SVG DEPENDENCY)
    -------------------------------------------------------------------------- */
 .portrait-img {
-  
-  width: 320px;
+  width: 100%;
+  max-width: fit-content;
   height: 460px;
+  max-height: fit-content;
   object-fit: cover;
   display: block;
 }
