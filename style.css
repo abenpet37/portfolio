@@ -358,6 +358,20 @@ a {
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: calc(85vh - var(--header-height));
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: calc(75vh - var(--header-height));
+    padding-bottom: 3rem;
+  }
+}
+
 .hero-section .watermark-number {
   top: -1.5rem;
   left: -1rem;
