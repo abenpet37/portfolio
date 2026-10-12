@@ -1937,6 +1937,7 @@ a {
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   aspect-ratio: 3 / 4;
   position: relative;
+  max-width: 320px;
 }
 
 .art-thumb::after {
@@ -1963,6 +1964,8 @@ a {
 .art-thumb img {
   width: 100%;
   height: 100%;
+  max-width: 320px;
+  max-height: 420px;
   object-fit: cover;
   display: block;
   transition: transform var(--transition-smooth);
