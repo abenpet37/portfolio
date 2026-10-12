@@ -1694,7 +1694,7 @@ a {
   width: 100%;
   max-width: 360px;
   height:auto;
-  max-height: 460px;
+  max-height: 720px;
   object-fit: cover;
   display: block;
 }
