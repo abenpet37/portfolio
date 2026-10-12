@@ -1693,6 +1693,7 @@ a {
 .portrait-img {
   width: 100%;
   max-width: 360px;
+  height:auto;
   max-height: 460px;
   object-fit: cover;
   display: block;
