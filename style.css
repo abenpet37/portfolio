@@ -174,11 +174,31 @@ a {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  font-size: clamp(0.65rem, 4vw, 1.05rem);
   letter-spacing: 0.04em;
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    font-size: clamp(0.55rem, 5.5vw, 0.75rem);
+    gap: 4px;
+  }
+
+  .logo-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot-contrast {
+    margin-left: -3px;
+  }
+
+  .logo-slash {
+    margin: 0 1px;
+  }
 }
 
 .logo-dot {
