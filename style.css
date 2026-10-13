@@ -351,8 +351,8 @@ a {
    7. SECTION 01: HERO SECTION
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding-top: 3.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: clamp(2rem, 5vh, 3.5rem);
+  padding-bottom: clamp(3rem, 8vh, 5.5rem);
   min-height: calc(100vh - var(--header-height));
   display: flex;
   align-items: center;
@@ -361,14 +361,15 @@ a {
 @media (max-width: 768px) {
   .hero-section {
     min-height: calc(85vh - var(--header-height));
-    padding-bottom: 4rem;
+    padding-bottom: clamp(2.5rem, 6vh, 4rem);
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    min-height: calc(75vh - var(--header-height));
-    padding-bottom: 3rem;
+    min-height: calc(70vh - var(--header-height));
+    padding-bottom: clamp(2rem, 5vh, 3rem);
+    padding-top: clamp(1.5rem, 4vh, 2.5rem);
   }
 }
 
@@ -381,7 +382,7 @@ a {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 3.5rem;
+  gap: clamp(2rem, 5vw, 3.5rem);
   position: relative;
   z-index: 2;
   width: 100%;
@@ -443,12 +444,13 @@ a {
   border: 1.5px solid var(--color-badge-border);
   color: var(--color-yellow);
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: clamp(0.7rem, 2.5vw, 0.82rem);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  padding: 0.4rem 1.1rem;
+  padding: 0.4rem clamp(0.9rem, 2vw, 1.1rem);
   border-radius: var(--radius-full);
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 3vh, 1.5rem);
+  align-self: flex-start;
 }
 
 .tag-sparkle {
@@ -460,13 +462,14 @@ a {
 .hero-title {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-size: clamp(1.5rem, 6vw, 3.4rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
   color: var(--color-text-main);
   position: relative;
-  margin-bottom: 1.8rem;
+  margin-bottom: clamp(1.2rem, 4vh, 1.8rem);
   text-transform: uppercase;
+  word-break: break-word;
 }
 
 .quote-mark {
@@ -483,7 +486,6 @@ a {
   padding: 0.05em 0.35em 0.12em;
 }
 
-/* The iconic yellow organic backdrop pillow behind "PORTO" */
 .porto-bubble-bg {
   position: absolute;
   inset: -6px -10px -4px -12px;
@@ -494,8 +496,18 @@ a {
   transform: rotate(-1.5deg);
 }
 
-.porto-word {
-  color: #121215; /* Always crisp dark on the yellow bubble */
+@media (max-width: 480px) {
+  .porto-bubble-bg {
+    inset: -4px -8px -3px -10px;
+    border-radius: 30px 40px 25px 35px;
+  }
+}
+
+.porto-word,
+.folio-word {
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .folio-word {
@@ -506,14 +518,15 @@ a {
 
 .period-dot {
   color: var(--color-yellow);
+  white-space: nowrap;
 }
 
 .hero-subtext {
-  font-size: 1.12rem;
+  font-size: clamp(1rem, 3vw, 1.12rem);
   color: var(--color-text-muted);
-  max-width: 500px;
+  max-width: 100%;
   line-height: 1.7;
-  margin-bottom: 2.2rem;
+  margin-bottom: clamp(1.8rem, 5vh, 2.2rem);
 }
 
 /* Hero Controls */
@@ -521,8 +534,8 @@ a {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.2rem;
-  margin-bottom: 2rem;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
 }
 
 /* Author Pill: (>) Randy Fahmi */
@@ -562,11 +575,12 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.82rem;
+  font-size: clamp(0.7rem, 2vw, 0.82rem);
   font-weight: 600;
   color: var(--color-text-dim);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  line-height: 1.4;
 }
 
 .badge-dot {
@@ -588,15 +602,15 @@ a {
 .hero-card-container {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: clamp(280px, 50vw, 420px);
 }
 
 .geo-halo {
   position: absolute;
   top: 8%;
   right: -5%;
-  width: 300px;
-  height: 300px;
+  width: clamp(200px, 40vw, 300px);
+  height: clamp(200px, 40vw, 300px);
   border-radius: 50%;
   border: 2px solid var(--color-card-border);
   pointer-events: none;
@@ -607,8 +621,8 @@ a {
   position: absolute;
   top: 22%;
   right: 0;
-  width: 85%;
-  height: 75%;
+  width: clamp(60%, 85%, 85%);
+  height: clamp(50%, 75%, 75%);
   background: var(--color-yellow);
   border-radius: 55px 40px 65px 40px;
   z-index: 1;
@@ -618,9 +632,9 @@ a {
 .portrait-frame {
   position: relative;
   z-index: 2;
-  border-radius: 36px;
+  border-radius: clamp(20px, 4vw, 36px);
   overflow: hidden;
-  height: 560px;
+  height: clamp(320px, 60vh, 560px);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
   border: 2.5px solid rgba(255, 255, 255, 0.12);
   transition: transform var(--transition-smooth);
@@ -1622,11 +1636,13 @@ a {
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: clamp(2rem, 5vw, 3rem);
   }
 
   .hero-visual-block {
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .about-grid {
@@ -1676,19 +1692,23 @@ a {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
+
+  .hero-title {
+    font-size: clamp(1.4rem, 8vw, 2.6rem);
+  }
+
+  .hero-subtext {
+    max-width: 100%;
+  }
+
+  .portrait-frame {
+    height: clamp(280px, 50vh, 420px);
+  }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 3.1rem;
-  }
-
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-badge-grid {
-    grid-template-columns: repeat(4, 1fr);
+    font-size: clamp(1.2rem, 10vw, 2rem);
   }
 
   .hero-actions {
@@ -1699,17 +1719,54 @@ a {
   .author-pill-btn,
   .btn-secondary {
     justify-content: center;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-meta-badge {
+    font-size: 0.7rem;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-badge-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .portrait-frame {
+    height: clamp(240px, 45vh, 340px);
+    border-radius: 20px;
+  }
+
+  .hero-card-container {
+    max-width: 100%;
   }
 }
 
 /* --------------------------------------------------------------------------
    13. IMAGE & ASSET ENHANCEMENTS (ZERO SVG DEPENDENCY)
    -------------------------------------------------------------------------- */
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vh, 1rem);
+  max-width: 100%;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-text-block {
+    max-width: 520px;
+  }
+}
+
 .portrait-img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center top;
 }
 
 .about-portrait-img {
