@@ -21,7 +21,8 @@
 
   /* Layout */
   --max-width: 1240px;
-  --header-height: 76px;
+  --header-height: 64px;
+  --header-height-mobile: 56px;
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 26px;
@@ -156,13 +157,14 @@ a {
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-divider);
   z-index: 100;
+  transition: height var(--transition-smooth);
 }
 
 .nav-container {
   max-width: var(--max-width);
   height: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -175,7 +177,7 @@ a {
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   letter-spacing: 0.04em;
 }
 
@@ -209,7 +211,7 @@ a {
 
 .nav-link {
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.92rem);
   color: var(--color-text-muted);
   transition: color var(--transition-fast);
   padding: 0.4rem 0;
@@ -223,7 +225,7 @@ a {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
 }
 
 /* Pure CSS Theme Toggle Switch */
@@ -232,8 +234,8 @@ a {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  width: 58px;
-  height: 32px;
+  width: clamp(48px, 8vw, 58px);
+  height: clamp(26px, 5vh, 32px);
   background: var(--color-card);
   border: 1.5px solid var(--color-card-border);
   border-radius: var(--radius-full);
@@ -248,7 +250,7 @@ a {
 }
 
 .switch-icon {
-  font-size: 0.85rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
   z-index: 2;
   line-height: 1;
 }
@@ -257,8 +259,8 @@ a {
   position: absolute;
   top: 3px;
   left: 4px;
-  width: 22px;
-  height: 22px;
+  width: clamp(18px, 4vw, 22px);
+  height: clamp(18px, 4vw, 22px);
   border-radius: 50%;
   background: var(--color-yellow);
   transition: transform var(--transition-fast);
@@ -267,7 +269,7 @@ a {
 
 /* Slide switch when checked */
 .theme-toggle-checkbox:checked ~ .site-container .switch-slider {
-  transform: translateX(25px);
+  transform: translateX(clamp(20px, 4vw, 25px));
 }
 
 /* --------------------------------------------------------------------------
@@ -331,7 +333,7 @@ a {
 
 .section {
   position: relative;
-  padding: 4.5rem 0;
+  padding: clamp(3.5rem, 8vh, 4.5rem) 0;
 }
 
 /* Faint Ghost Numbers ('01', '02', '03') */
@@ -1664,6 +1666,18 @@ a {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    height: var(--header-height-mobile);
+  }
+
+  .nav-container {
+    padding: 0 1.2rem;
+  }
+
+  .brand-logo {
+    font-size: 1rem;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1707,6 +1721,14 @@ a {
 }
 
 @media (max-width: 480px) {
+  .navbar {
+    height: var(--header-height-mobile);
+  }
+
+  .brand-logo {
+    font-size: 0.9rem;
+  }
+
   .hero-title {
     font-size: clamp(1.2rem, 10vw, 2rem);
   }
